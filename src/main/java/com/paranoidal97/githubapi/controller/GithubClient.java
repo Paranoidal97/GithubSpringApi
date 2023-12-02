@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(value="github", url="https://api.github.com")
+@FeignClient(value = "github", url = "${feign.path}")
 @Headers("User-Agent: http://developer.github.com/v3/#user-agent-required")
 public interface GithubClient {
     @GetMapping("/repos/{owner}/{repo}")

@@ -18,6 +18,7 @@
 		<mapstruct.version>1.5.5.Final</mapstruct.version>
 		<spring-cloud.version>2022.0.0</spring-cloud.version>
 	</properties>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -29,6 +30,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
