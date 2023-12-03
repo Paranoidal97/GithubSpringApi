@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(value = "github", url = "${feign.path}")
+@FeignClient(value = "github", url = "${app.githubi.api.url}")
 @Headers("User-Agent: http://developer.github.com/v3/#user-agent-required")
 public interface GithubClient {
     @GetMapping("/repos/{owner}/{repo}")
     public RepoDTO getGithubDetails(@PathVariable String owner, @PathVariable String repo);
 
-    //TODO tyo nie maja być voidy
     @GetMapping("/users/{owner}/repos")
     public List<RepoDTO> getGithubDetails(@PathVariable String owner);
 }

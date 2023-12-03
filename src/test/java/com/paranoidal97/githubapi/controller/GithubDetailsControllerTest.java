@@ -8,12 +8,12 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ApiControllerTest {
+public class GithubDetailsControllerTest {
     @Autowired
     MockMvc mockMvc;
 
     @Test
-    public void getOwnerRepos(){
+    public void getOwnerRepos() {
 
     }
 
