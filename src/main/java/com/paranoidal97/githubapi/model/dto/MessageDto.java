@@ -1,4 +1,4 @@
-package com.paranoidal97.githubapi.model;
+package com.paranoidal97.githubapi.model.dto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

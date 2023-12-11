@@ -2,7 +2,7 @@ package com.paranoidal97.githubapi.data;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
-import com.paranoidal97.githubapi.model.RepoDTO;
+import com.paranoidal97.githubapi.model.dto.RepoDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
@@ -13,7 +13,7 @@ import static org.springframework.util.StreamUtils.copyToString;
 
 public class WireMockStubs {
     public static void setupMockGithubClient(WireMockServer mockServer) throws IOException {
-        mockServer.stubFor(WireMock.get(WireMock.urlPathMatching("/.*"))
+        mockServer.stubFor(WireMock.get(WireMock.urlEqualTo("/Paranoidal97"))
                 .willReturn(WireMock.aResponse()
                         .withStatus(HttpStatus.OK.value())
                         .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
@@ -28,7 +28,7 @@ public class WireMockStubs {
                 )
         );
 
-        mockServer.stubFor(WireMock.post(WireMock.urlPathMatching("/.*/.*"))
+        mockServer.stubFor(WireMock.get(WireMock.urlEqualTo("/Paranoidal97/medical-clinic"))
                 .willReturn(WireMock.aResponse()
                         .withStatus(HttpStatus.OK.value())
                         .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
