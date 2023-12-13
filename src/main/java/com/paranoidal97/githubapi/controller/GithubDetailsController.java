@@ -44,22 +44,20 @@ public class GithubDetailsController {
 
     @PostMapping("/repositories/{owner}/{repository-name}")
     // TODO
-    @Operation(summary = "Get repository details", tags = "Repository details")
+    @Operation(summary = "Save repository details", tags = "Repository details")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "OK",
-                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            array = @ArraySchema(schema = @Schema(implementation = RepoDTO.class)))})
+            @ApiResponse(responseCode = "200", description = "Repository details saved successfully"),
+            @ApiResponse(responseCode = "404", description = "Repository not found"),
     })
     public RepoDTO saveRepository(@PathVariable String owner, @PathVariable String repo) {
         return apiService.saveRepository(owner, repo);
     }
 
     @GetMapping("/local/repositories/{owner}/{repo}")
-    @Operation(summary = "Get repository details", tags = "Repository details")
+    @Operation(summary = "Get local repository details", tags = "Repository details")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "OK",
-                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            array = @ArraySchema(schema = @Schema(implementation = RepoDTO.class)))})
+            @ApiResponse(responseCode = "200", description = "Repository details "),
+            @ApiResponse(responseCode = "404", description = "Repository not found"),
     })
     public Optional<RepoDTO> getLocalGithubDetails(@PathVariable String owner, @PathVariable String repo) {
         return apiService.getGithubDetails(owner, repo);
@@ -67,12 +65,7 @@ public class GithubDetailsController {
 
     @PutMapping("/repositories/{owner}/{repository-name}")
     // TODO
-    @Operation(summary = "Get repository details", tags = "Repository details")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "OK",
-                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
-                            array = @ArraySchema(schema = @Schema(implementation = RepoDTO.class)))})
-    })
+    @Operation(summary = "Edit repository details", tags = "Repository details")
     public RepoDTO editRepository(@PathVariable String owner, @PathVariable String repo) {
         return apiService.editRepository(owner, repo);
     }
