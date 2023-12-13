@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: paranoidal97
+      changes:
+        - createTable:
+            tableName: REPO
+            columns:
+              - column:
+                  name: owner
+                  type: VARCHAR(255)
+              - column:
+                  name: repository
+                  type: VARCHAR(255)
+              - column:
+                  name: fullname
+                  type: varchar(255)
+              - column:
+                  name: description
+                  type: varchar(128)
+              - column:
+                  name: url
+                  type: varchar(255)
+              - column:
+                  name: stars
+                  type: int
+              - column:
+                  name: created_at
+                  type: timestamp
+            primaryKey:
+              columns:
+                - column:
+                    name: owner
+                - column:
+                    name: repository
